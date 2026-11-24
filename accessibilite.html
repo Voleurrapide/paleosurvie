@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Déclaration d'accessibilité numérique et conformité RGAA du site Paléosurvie 2068. Navigation clavier, contrastes et alternatives textuelles.">
+    <title>Déclaration d'Accessibilité | Paléosurvie 2068</title>
+    <link rel="icon" href="images/paleosurvie_favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- ==================== EN-TÊTE DE NAVIGATION ==================== -->
+    <header class="legal-header site-container">
+        <div class="header-nav-bar">
+            <a href="index.html" class="logo">
+                <img src="images/paleosurvie_logo.svg" alt="Logo Paléosurvie" class="logo-img" width="690" height="440">
+                <span class="logo-text">PALÉOSURVIE</span>
+            </a>
+            <nav class="main-nav" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link nav-accueil">Accueil</a></li>
+                    <li class="nav-item"><a href="survie.html" class="nav-link nav-survie">Survie</a></li>
+                    <li class="nav-item"><a href="encyclopedie.html" class="nav-link nav-encyclopedie">Encyclopédie</a></li>
+                    <li class="nav-item"><a href="archives.html" class="nav-link nav-archives">Archives</a></li>
+                    <li class="nav-item"><a href="profil.html" class="nav-link nav-profil nav-link-badge">Profil Survivant</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== CONTENU PRINCIPAL ==================== -->
+    <div class="site-container">
+        <main class="main-content legal-container">
+            <header class="page-title-block">
+                <h1 class="page-title">Déclaration d'Accessibilité</h1>
+                <p class="page-subtitle">Engagements de conformité RGAA, navigation inclusive et bonnes pratiques web</p>
+            </header>
+
+            <div class="legal-content">
+                <section class="legal-section">
+                    <h2 class="legal-title">1. Engagement pour l'accessibilité numérique</h2>
+                    <p>
+                        Le site <strong>Paléosurvie</strong> s'engage à rendre ses contenus et ses fonctionnalités accessibles au plus grand nombre d'utilisateurs, quelles que soient leurs capacités physiques, sensorielles ou cognitives, ainsi que leur matériel de consultation (ordinateur, tablette, smartphone ou technologie d'assistance).
+                    </p>
+                    <p>
+                        Le développement du projet a intégré les recommandations du <strong>Référentiel Général d'Amélioration de l'Accessibilité (RGAA version 4)</strong> et des directives internationales <strong>WCAG 2.1</strong> (niveau AA).
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2 class="legal-title">2. Respect des contrastes et confort de lecture</h2>
+                    <ul>
+                        <li>
+                            <strong>Ratios de contraste vérifiés :</strong> Tous les textes principaux (titres, paragraphes, valeurs d'information) respectent un ratio de contraste supérieur à 4.5:1 sur leur arrière-plan sombre, garantissant une lisibilité optimale même en cas de basse luminosité.
+                        </li>
+                        <li>
+                            <strong>Accents visuels identifiables :</strong> L'accent vert terminal (<code>#00ff41</code>) et les badges d'urgence colorés (rouge critique, orange modéré, vert faible) sont toujours accompagnés d'un texte explicite pour ne pas transmettre l'information par la seule couleur.
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2 class="legal-title">3. Navigation intégrale au clavier et repères</h2>
+                    <ul>
+                        <li>
+                            <strong>Ordre de tabulation logique :</strong> Tous les éléments interactifs (liens de navigation, boutons d'action, accordéons, carrousel d'archives, cartes d'encyclopédie) reçoivent le focus dans un ordre séquentiel intuitif.
+                        </li>
+                        <li>
+                            <strong>Focus visuel renforcé :</strong> Un indicateur visuel de focus bien distinct (bordure accentuée, surbrillance) permet aux utilisateurs naviguant sans souris de situer précisément leur curseur.
+                        </li>
+                        <li>
+                            <strong>Fermeture accessible de la modale :</strong> La modale de détail des créatures peut être refermée au clavier par la touche <kbd>Échap</kbd> ou via le bouton de fermeture dédié, accessible à la tabulation.
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2 class="legal-title">4. Sémantique HTML5 et alternatives textuelles</h2>
+                    <ul>
+                        <li>
+                            <strong>Structure sémantique stricte :</strong> Utilisation rigoureuse des balises sémantiques HTML5 (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, <code>&lt;footer&gt;</code>) pour faciliter l'interprétation par les lecteurs d'écran (JAWS, NVDA, VoiceOver).
+                        </li>
+                        <li>
+                            <strong>Attributs ARIA ciblés :</strong> Présence de <code>aria-label</code> sur les repères de navigation, <code>aria-expanded</code> sur l'accordéon dynamique, et <code>role="dialog"</code> avec <code>aria-modal="true"</code> sur la boîte de dialogue.
+                        </li>
+                        <li>
+                            <strong>Alternatives textuelles (alt) :</strong> Toutes les images informatives comportent un attribut <code>alt</code> précis et contextualisé. Les éléments d'ambiance ou décoratifs portent <code>aria-hidden="true"</code>.
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2 class="legal-title">5. Conception responsive et redimensionnement du texte</h2>
+                    <p>
+                        L'architecture graphique est entièrement bâtie en <strong>CSS Flexbox</strong> (sans grille rigide ni éléments flottants). L'interface s'adapte sans rupture de 320px à plus de 1920px de largeur d'écran, et accepte un grossissement du texte jusqu'à 200% sans perte d'information ni superposition de texte.
+                    </p>
+                </section>
+            </div>
+        </main>
+
+        <!-- ==================== PIED DE PAGE ==================== -->
+        <footer class="main-footer">
+            <p class="footer-copy">&copy; 2068 - Réseau d'alerte indépendant</p>
+            <nav class="footer-nav" aria-label="Liens légaux">
+                <ul class="footer-links">
+                    <li><a href="mentions-legales.html" class="footer-link">Mentions légales</a></li>
+                    <li><a href="confidentialite.html" class="footer-link">Confidentialité</a></li>
+                    <li><a href="accessibilite.html" class="footer-link">Accessibilité</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>

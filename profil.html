@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Carnet de bord du survivant - Profil, état physique, réputation et inventaire de survie.">
+    <title>Profil Survivant | Paléosurvie 2068</title>
+    <link rel="icon" href="images/paleosurvie_favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- ==================== EN-TÊTE ==================== -->
+    <header class="profil-header site-container">
+        <div class="header-nav-bar">
+            <a href="index.html" class="logo">
+                <img src="images/paleosurvie_logo.svg" alt="Logo Paléosurvie" class="logo-img" width="690" height="440">
+                <span class="logo-text">PALÉOSURVIE</span>
+            </a>
+            <nav class="main-nav" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link nav-accueil">Accueil</a></li>
+                    <li class="nav-item"><a href="survie.html" class="nav-link nav-survie">Survie</a></li>
+                    <li class="nav-item"><a href="encyclopedie.html" class="nav-link nav-encyclopedie">Encyclopédie</a></li>
+                    <li class="nav-item"><a href="archives.html" class="nav-link nav-archives">Archives</a></li>
+                    <li class="nav-item"><a href="profil.html"
+                            class="nav-link nav-profil nav-link-badge nav-link-active">Profil Survivant</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== CONTENU PRINCIPAL ==================== -->
+    <div class="site-container">
+        <main class="main-content">
+            <!-- Titre de la page -->
+            <header class="page-title-block">
+                <h1 class="page-title">Carnet de Bord : Survivant</h1>
+                <p class="page-subtitle">Dossier personnel · Données biométriques et inventaire tactique</p>
+            </header>
+
+            <!-- ==================== SECTION IDENTITÉ (Texte gauche / Avatar droite) ==================== -->
+            <section class="profil-identite" aria-labelledby="identite-title">
+                <div class="profil-infos">
+                    <h2 id="identite-title" class="profil-section-title">Identité du Survivant</h2>
+                    <ul class="profil-liste">
+                        <li><span class="profil-label">Prénom :</span> <span id="profil-prenom"
+                                class="profil-valeur">---</span></li>
+                        <li><span class="profil-label">Nom :</span> <span
+                                class="profil-valeur profil-censure">[CENSURÉ]</span></li>
+                        <li><span class="profil-label">Sexe :</span> <span id="profil-sexe"
+                                class="profil-valeur">---</span></li>
+                        <li><span class="profil-label">Taille :</span> <span id="profil-taille"
+                                class="profil-valeur">---</span></li>
+                        <li><span class="profil-label">Poids :</span> <span id="profil-poids"
+                                class="profil-valeur">---</span></li>
+                        <li><span class="profil-label">Occupation :</span> <span id="profil-occ-post"
+                                class="profil-valeur">---</span></li>
+                    </ul>
+                    <form id="form-survivant" class="profil-action-form">
+                        <button id="btn-nouveau-survivant" class="btn-auth btn-nouveau-survivant" type="button">Générer un nouveau
+                            survivant</button>
+                    </form>
+                </div>
+                <figure class="profil-avatar-frame">
+                    <img id="avatar-survivant" src="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%201%201%27%3E%3C/svg%3E" alt="Avatar du survivant" class="profil-avatar-img" width="400" height="400">
+                </figure>
+            </section>
+
+            <!-- ==================== SECTION ÉTAT PHYSIQUE ==================== -->
+            <section class="profil-etat" aria-labelledby="etat-title">
+                <h2 id="etat-title" class="profil-section-title">État Physique</h2>
+                <ul class="profil-barres">
+                    <li class="barre-groupe">
+                        <span class="barre-label">PV</span>
+                        <div class="barre-fond">
+                            <div id="barre-pv" class="barre-remplissage"></div>
+                        </div>
+                        <span class="barre-texte" id="val-pv">--%</span>
+                    </li>
+                    <li class="barre-groupe">
+                        <span class="barre-label">Faim</span>
+                        <div class="barre-fond">
+                            <div id="barre-faim" class="barre-remplissage"></div>
+                        </div>
+                        <span class="barre-texte" id="val-faim">--%</span>
+                    </li>
+                    <li class="barre-groupe">
+                        <span class="barre-label">Hydratation</span>
+                        <div class="barre-fond">
+                            <div id="barre-hydratation" class="barre-remplissage"></div>
+                        </div>
+                        <span class="barre-texte" id="val-hydratation">--%</span>
+                    </li>
+                    <li class="barre-groupe">
+                        <span class="barre-label">Temps réveillé</span>
+                        <div class="barre-fond">
+                            <div id="barre-sommeil" class="barre-remplissage"></div>
+                        </div>
+                        <span class="barre-texte" id="val-sommeil">--h</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ==================== SECTION INVENTAIRE ==================== -->
+            <section class="profil-inventaire" aria-labelledby="inventaire-title">
+                <h2 id="inventaire-title" class="profil-section-title">Inventaire</h2>
+                <nav class="filtre-bar" aria-label="Filtres de l'inventaire">
+                    <button class="filtre-btn filtre-actif" data-filtre="tout" type="button">Tout</button>
+                    <button class="filtre-btn" data-filtre="arme" type="button">Armes / Munitions</button>
+                    <button class="filtre-btn" data-filtre="aliment" type="button">Aliments</button>
+                    <button class="filtre-btn" data-filtre="document" type="button">Documents</button>
+                    <button class="filtre-btn" data-filtre="soin" type="button">Soins</button>
+                </nav>
+                <div id="grille-inventaire" class="grille-inventaire">
+                    <!-- Cartes générées dynamiquement par JS -->
+                </div>
+            </section>
+
+            <!-- ==================== SECTION SITUATION ==================== -->
+            <section class="profil-complement" aria-labelledby="situation-title">
+                <h2 id="situation-title" class="profil-section-title">Situation</h2>
+                <ul class="profil-liste">
+                    <li><span class="profil-label">Réputation :</span> <span id="profil-reputation"
+                            class="profil-valeur">---</span></li>
+                    <li><span class="profil-label">Refuge :</span> <span id="profil-refuge"
+                            class="profil-valeur">---</span></li>
+                    <li><span class="profil-label">Groupe :</span> <span id="profil-groupe"
+                            class="profil-valeur">---</span></li>
+                    <li><span class="profil-label">Occupation pré-apocalyptique :</span> <span id="profil-occ-pre"
+                            class="profil-valeur">---</span></li>
+                </ul>
+            </section>
+
+            <!-- ==================== SECTION CONSEIL DE SURVIE ==================== -->
+            <section class="profil-conseil" aria-labelledby="conseil-title">
+                <h2 id="conseil-title" class="profil-section-title">Conseil de Survie</h2>
+                <div class="conseil-contenu">
+                    <p>
+                        <strong>Règle n°1 :</strong> Restez en hauteur. Les prédateurs terrestres évitent les
+                        structures au-dessus du 3<sup>e</sup> étage. Barricadez les accès inférieurs avec du mobilier
+                        lourd.
+                    </p>
+                    <p>
+                        <strong>Règle n°2 :</strong> Filtrez toute eau avant consommation. Les nappes phréatiques
+                        côtières sont contaminées par les rejets chimiques des laboratoires Wara et Z-Territoire.
+                    </p>
+                    <p>
+                        <strong>Règle n°3 :</strong> Ne voyagez jamais seul et jamais de nuit. Les chimères nocturnes
+                        possèdent une vision infrarouge et chassent en meute coordonnée.
+                    </p>
+                    <p>
+                        <strong>Règle n°4 :</strong> En cas de contact visuel avec un Titan Wara, restez absolument
+                        immobile : sa vision repose sur la détection de mouvement. Ne fuyez qu'après son passage.
+                    </p>
+                    <p>
+                        <strong>Règle n°5 :</strong> Le Croc-lynx chasse en embuscade dans les ruines urbaines. Ne
+                        pénétrez jamais un bâtiment sans avoir repéré au moins deux sorties de secours.
+                    </p>
+                    <p>
+                        <strong>Règle n°6 :</strong> Le Hibou-chat des neiges est le seul allié de l'homme. Il régule
+                        les rongeurs autour des abris et n'attaque jamais les humains. Ne lui faites aucun mal.
+                    </p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ==================== PIED DE PAGE ==================== -->
+        <footer class="main-footer">
+            <p class="footer-copy">&copy; 2068 - Réseau d'alerte indépendant</p>
+            <nav class="footer-nav" aria-label="Liens légaux">
+                <ul class="footer-links">
+                    <li><a href="mentions-legales.html" class="footer-link">Mentions légales</a></li>
+                    <li><a href="confidentialite.html" class="footer-link">Confidentialité</a></li>
+                    <li><a href="accessibilite.html" class="footer-link">Accessibilité</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- ==================== CONTRÔLE AUDIO D'AMBIANCE ==================== -->
+    <button type="button" id="btn-audio" class="btn-audio" aria-label="Activer ou désactiver la musique d'ambiance">
+        <span class="btn-audio-indicateur" aria-hidden="true"></span>
+        <span id="btn-audio-texte">Audio : OFF</span>
+    </button>
+    <audio id="audio-ambiance" loop preload="none">
+        <source src="audio/son%20ambiance.mp3" type="audio/mpeg">
+    </audio>
+</body>
+
+</html>

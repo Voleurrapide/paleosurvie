@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Politique de confidentialité et gestion des données locales du projet Paléosurvie (SAÉ 105). Zéro collecte, stockage local exclusif.">
+    <title>Politique de Confidentialité | Paléosurvie 2068</title>
+    <link rel="icon" href="images/paleosurvie_favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- ==================== EN-TÊTE DE NAVIGATION ==================== -->
+    <header class="legal-header site-container">
+        <div class="header-nav-bar">
+            <a href="index.html" class="logo">
+                <img src="images/paleosurvie_logo.svg" alt="Logo Paléosurvie" class="logo-img" width="690" height="440">
+                <span class="logo-text">PALÉOSURVIE</span>
+            </a>
+            <nav class="main-nav" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link nav-accueil">Accueil</a></li>
+                    <li class="nav-item"><a href="survie.html" class="nav-link nav-survie">Survie</a></li>
+                    <li class="nav-item"><a href="encyclopedie.html" class="nav-link nav-encyclopedie">Encyclopédie</a></li>
+                    <li class="nav-item"><a href="archives.html" class="nav-link nav-archives">Archives</a></li>
+                    <li class="nav-item"><a href="profil.html" class="nav-link nav-profil nav-link-badge">Profil Survivant</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== CONTENU PRINCIPAL ==================== -->
+    <div class="site-container">
+        <main class="main-content legal-container">
+            <header class="page-title-block">
+                <h1 class="page-title">Politique de Confidentialité</h1>
+                <p class="page-subtitle">Protection de la vie privée, stockage local et absence totale de collecte externe</p>
+            </header>
+
+            <div class="legal-content">
+                <section class="legal-section">
+                    <h2 class="legal-title">1. Absence de collecte de données personnelles</h2>
+                    <p>
+                        Le site <strong>Paléosurvie</strong> s'engage à garantir le respect total de votre vie privée. 
+                        <strong>Aucune donnée personnelle</strong> (adresse IP, identité, géolocalisation, adresse e-mail ou habitude de navigation) n'est transmise, enregistrée sur une base de données distante ou vendue à un quelconque tiers.
+                    </p>
+                    <p>
+                        La navigation sur l'ensemble du site s'effectue de manière anonyme et confidentielle.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2 class="legal-title">2. Utilisation exclusive du stockage local (localStorage)</h2>
+                    <p>
+                        Le site utilise uniquement l'API standard <strong>localStorage</strong> de votre navigateur web pour améliorer votre expérience utilisateur et permettre la persistance des interactions du site :
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Carnet de profil survivant (profil.html) :</strong> Lorsque vous générez un profil ou que vous chargez la page, les données simulées (prénom, biographie, équipement, statistiques de survie) sont enregistrées localement sous la clé <code>paleosurvie_survivant_actif</code> afin que votre profil reste actif lors de votre session.
+                        </li>
+                        <li>
+                            <strong>Checklist des protocoles d'urgence (survie.html) :</strong> L'état coché ou décoché des cases d'équipement de survie est conservé dans <code>paleosurvie_checklist</code> pour que vous retrouviez votre progression lors de vos prochaines visites.
+                        </li>
+                    </ul>
+                    <p>
+                        Ces informations restent <strong>strictement stockées sur votre appareil</strong> au sein de votre propre navigateur. Elles ne quittent à aucun moment votre machine.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h2 class="legal-title">3. Contrôle et suppression de vos données</h2>
+                    <p>
+                        Vous conservez à tout moment la maîtrise totale de vos données locales :
+                    </p>
+                    <ul>
+                        <li>
+                            Sur la page <strong>Profil Survivant</strong>, le bouton <em>"Générer un autre profil"</em> efface instantanément les données actuelles du <code>localStorage</code> pour en recréer un nouveau.
+                        </li>
+                        <li>
+                            Vous pouvez à tout instant supprimer l'intégralité du stockage local en vidant le cache ou les données de site dans les paramètres de votre navigateur (raccourci <code>Ctrl + Maj + Suppr</code>).
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2 class="legal-title">4. Traceurs, cookies tiers et polices distantes</h2>
+                    <p>
+                        Conformément aux principes de conception frugale et autonome de la SAÉ 105 :
+                    </p>
+                    <ul>
+                        <li>Aucun cookie publicitaire ou de suivi n'est déposé.</li>
+                        <li>Aucun service externe d'analyse d'audience (type Google Analytics) n'est connecté.</li>
+                        <li>Aucun CDN externe n'est interrogé : les polices d'écriture, images, vidéos et fichiers audio sont hébergés localement sur le projet.</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <!-- ==================== PIED DE PAGE ==================== -->
+        <footer class="main-footer">
+            <p class="footer-copy">&copy; 2068 - Réseau d'alerte indépendant</p>
+            <nav class="footer-nav" aria-label="Liens légaux">
+                <ul class="footer-links">
+                    <li><a href="mentions-legales.html" class="footer-link">Mentions légales</a></li>
+                    <li><a href="confidentialite.html" class="footer-link">Confidentialité</a></li>
+                    <li><a href="accessibilite.html" class="footer-link">Accessibilité</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>

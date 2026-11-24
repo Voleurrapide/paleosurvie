@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Encyclopédie Paléosurvie - Base de données biologique des espèces réanimées et chimères issues des laboratoires Wara et Z-territoire (2068).">
+    <title>Encyclopédie : Base de Données Biologique | Paléosurvie 2068</title>
+    <link rel="icon" href="images/paleosurvie_favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- ==================== EN-TÊTE PRINCIPAL ==================== -->
+    <header class="encyclopedie-header site-container">
+        <!-- Barre de navigation supérieure (identique aux autres pages) -->
+        <div class="header-nav-bar">
+            <a href="index.html" class="logo">
+                <img src="images/paleosurvie_logo.svg" alt="Logo Paléosurvie" class="logo-img" width="690" height="440">
+                <span class="logo-text">PALÉOSURVIE</span>
+            </a>
+            <nav class="main-nav" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link nav-accueil">Accueil</a></li>
+                    <li class="nav-item"><a href="survie.html" class="nav-link nav-survie">Survie</a></li>
+                    <li class="nav-item"><a href="encyclopedie.html"
+                            class="nav-link nav-encyclopedie nav-link-active">Encyclopédie</a></li>
+                    <li class="nav-item"><a href="archives.html" class="nav-link nav-archives">Archives</a></li>
+                    <li class="nav-item"><a href="profil.html" class="nav-link nav-profil nav-link-badge">Profil
+                            Survivant</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Bloc Titre Hero de l'Encyclopédie -->
+        <div class="encyclopedie-hero">
+            <div class="encyclopedie-hero-left">
+                <p class="hero-pretitle">Archives Biologiques :</p>
+                <h1 class="page-title">Encyclopédie : Base de Données Biologique</h1>
+                <div class="hero-actions">
+                    <a href="profil.html" class="btn-auth">S'identifier</a>
+                </div>
+            </div>
+            <div class="encyclopedie-hero-right">
+                <aside class="satellite-card species-card" aria-label="Recensement des espèces">
+                    <span class="satellite-label">Espèces Recensées :</span>
+                    <p class="satellite-status"><span id="compteur-especes" class="species-count">38 / 75</span>
+                        répertoriées</p>
+                </aside>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== CONTENU PRINCIPAL ==================== -->
+    <div class="site-container">
+        <main class="main-content">
+
+            <!-- Avertissement Lore -->
+            <aside class="warning-lore" aria-label="Avertissement d'archives">
+                <p>Attention : Certaines espèces illégales et secrètes n'ont laissé que des traces, sons ou images.
+                    Elles ne figurent pas ici par manque d'informations.</p>
+            </aside>
+
+            <!-- SECTION 1 : Espèces Réanimées -->
+            <section class="section-encyclopedie" aria-labelledby="titre-reanimees">
+                <h2 id="titre-reanimees" class="section-encyclopedie-titre">Archives extraites des laboratoires
+                    Z-territoire et Wara</h2>
+                <div id="grille-reanimees" class="grille-creatures"></div>
+            </section>
+
+            <!-- SECTION 2 : Chimères & Expériences illégales -->
+            <section class="section-encyclopedie" aria-labelledby="titre-chimeres">
+                <h2 id="titre-chimeres" class="section-encyclopedie-titre">Observation de chimères &amp; expériences
+                    illégales</h2>
+                <div id="grille-chimeres" class="grille-creatures"></div>
+            </section>
+
+        </main>
+
+        <!-- ==================== PIED DE PAGE ==================== -->
+        <footer class="main-footer">
+            <p class="footer-copy">&copy; 2068 - Réseau d'alerte indépendant</p>
+            <nav class="footer-nav" aria-label="Liens légaux">
+                <ul class="footer-links">
+                    <li><a href="mentions-legales.html" class="footer-link">Mentions légales</a></li>
+                    <li><a href="confidentialite.html" class="footer-link">Confidentialité</a></li>
+                    <li><a href="accessibilite.html" class="footer-link">Accessibilité</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- ==================== LA MODALE (POP-UP) DÉTAIL CRÉATURE ==================== -->
+    <div id="modale-creature" class="modale-creature modale-cachee" role="dialog" aria-modal="true" aria-labelledby="modale-nom">
+        <div class="modale-overlay" id="modale-overlay"></div>
+        <div class="modale-boite">
+            <!-- Bouton de fermeture [X] -->
+            <button type="button" id="btn-fermer-modale" class="btn-fermer-modale"
+                aria-label="Fermer la modale">&times;</button>
+
+            <!-- PARTIE SUPÉRIEURE (Image à gauche, Infos rapides à droite) -->
+            <div class="modale-section-superieure">
+                <!-- Zone Image avec badge Danger -->
+                <div class="modale-zone-image">
+                    <span id="modale-danger" class="modale-badge-danger">Danger : ---</span>
+                    <figure class="modale-cadre-photo">
+                        <img id="modale-photo" src="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%201%201%27%3E%3C/svg%3E" alt="Photographie de la créature" class="modale-photo-img" width="800" height="500">
+                    </figure>
+                </div>
+
+                <!-- Zone Infos (Danger, % ADN, Direction, Comportement, Attaques) -->
+                <div class="modale-zone-infos">
+                    <ul class="modale-liste-infos">
+                        <li>
+                            <span class="modale-champ-label">% ADN :</span>
+                            <span id="modale-adn" class="modale-champ-valeur">---</span>
+                        </li>
+                        <li>
+                            <span class="modale-champ-label">Direction de migration :</span>
+                            <span id="modale-direction" class="modale-champ-valeur">---</span>
+                        </li>
+                        <li>
+                            <span class="modale-champ-label">Comportement :</span>
+                            <span id="modale-comportement" class="modale-champ-valeur">---</span>
+                        </li>
+                        <li>
+                            <span class="modale-champ-label">Attaques enregistrées :</span>
+                            <span id="modale-attaques" class="modale-champ-valeur">---</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PARTIE INFÉRIEURE (Détails complets à gauche, Formulaire transmission à droite) -->
+            <div class="modale-section-inferieure">
+                <!-- Zone Détails (Nom, Alimentation, Apparition, Disparition, Réanimation, Conseils) -->
+                <div class="modale-zone-details">
+                    <ul class="modale-liste-details">
+                        <li>
+                            <span class="modale-champ-label">Nom d'espèce :</span>
+                            <span id="modale-nom" class="modale-champ-valeur">---</span>
+                        </li>
+                        <li>
+                            <span class="modale-champ-label">Alimentation :</span>
+                            <span id="modale-alimentation" class="modale-champ-valeur">---</span>
+                        </li>
+                        <li>
+                            <span class="modale-champ-label">Année d'apparition :</span>
+                            <span id="modale-apparition" class="modale-champ-valeur">---</span>
+                        </li>
+                        <li>
+                            <span class="modale-champ-label">Année de disparition :</span>
+                            <span id="modale-disparition" class="modale-champ-valeur">---</span>
+                        </li>
+                        <li>
+                            <span class="modale-champ-label">Année de réanimation :</span>
+                            <span id="modale-reanimation" class="modale-champ-valeur">---</span>
+                        </li>
+                        <li class="modale-item-conseils">
+                            <span class="modale-champ-label">Conseils pour cette espèce :</span>
+                            <p id="modale-conseils" class="modale-conseils-texte">---</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Encart formulaire avec <textarea> + <button>Envoyer</button> + <p id="msg-info" class="cache"> -->
+                <form class="modale-zone-ajout" id="form-observation">
+                    <h3 class="modale-ajout-titre">Ajouter une information</h3>
+                    <p class="modale-ajout-description">Transmettez une observation de terrain pour enrichir la base de
+                        données.</p>
+                    <textarea id="champ-info-survivant" class="modale-textarea"
+                        placeholder="Observation terrain (coordonnées, comportement observé)..." rows="4"
+                        aria-label="Observation terrain"></textarea>
+                    <button type="button" id="btn-envoyer-info" class="btn-envoyer-info">Envoyer</button>
+                    <p id="msg-info" class="msg-info cache">Information transmise au réseau. En cours de traitement...</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CONTRÔLE AUDIO D'AMBIANCE ==================== -->
+    <button type="button" id="btn-audio" class="btn-audio" aria-label="Activer ou désactiver la musique d'ambiance">
+        <span class="btn-audio-indicateur" aria-hidden="true"></span>
+        <span id="btn-audio-texte">Audio : OFF</span>
+    </button>
+    <audio id="audio-ambiance" loop preload="none">
+        <source src="audio/son%20ambiance.mp3" type="audio/mpeg">
+    </audio>
+</body>
+
+</html>

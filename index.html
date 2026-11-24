@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paléosurvie - Réseau d'urgence et d'alerte indépendant en Méditerranée (2068).">
+    <title>Paléosurvie | Réseau d'urgence 2068</title>
+    <link rel="icon" href="images/paleosurvie_favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <!-- ==================== BANNIÈRE D'AVERTISSEMENT IMMERSION SONORE ==================== -->
+    <aside id="banniere-immersion" class="banniere-immersion" aria-label="Avertissement d'immersion sonore">
+        <div class="banniere-immersion-contenu">
+            <span class="banniere-badge">Liaison audio d'ambiance</span>
+            <img src="images/IA/immersion-casque.svg" alt="Survivant 2068 équipé d'un casque radio"
+                class="banniere-img" width="320" height="320">
+            <h2 class="banniere-titre">Immersion atmosphérique</h2>
+            <p class="banniere-texte">
+                Pour une immersion totale dans l'atmosphère hostile de 2068, nous vous conseillons d'utiliser <strong>un
+                    casque ou des écouteurs</strong>.
+            </p>
+            <div class="banniere-actions">
+                <button type="button" id="btn-activer-immersion" class="btn-immersion">Activer l'immersion
+                    sonore</button>
+                <button type="button" id="btn-ignorer-immersion" class="btn-ignorer">Continuer en silence</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ==================== EN-TÊTE HERO AVEC VIDÉO DE FOND ==================== -->
+    <header class="hero-header">
+        <!-- Vidéo d'arrière-plan -->
+        <video autoplay muted loop playsinline class="header-video" aria-hidden="true">
+            <source src="video/Video-Index-1.mp4" type="video/mp4">
+        </video>
+
+        <!-- Filtre sombre pour contraste et lisibilité -->
+        <div class="header-overlay" aria-hidden="true"></div>
+
+        <!-- Conteneur centré (1280px) -->
+        <div class="header-container">
+            <!-- Barre de navigation supérieure -->
+            <div class="header-nav-bar">
+                <a href="index.html" class="logo">
+                    <img src="images/paleosurvie_logo.svg" alt="Logo Paléosurvie" class="logo-img" width="690" height="440">
+                    <span class="logo-text">PALÉOSURVIE</span>
+                </a>
+                <nav class="main-nav" aria-label="Navigation principale">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html"
+                                class="nav-link nav-accueil nav-link-active">Accueil</a></li>
+                        <li class="nav-item"><a href="survie.html" class="nav-link nav-survie">Survie</a></li>
+                        <li class="nav-item"><a href="encyclopedie.html"
+                                class="nav-link nav-encyclopedie">Encyclopédie</a></li>
+                        <li class="nav-item"><a href="archives.html" class="nav-link nav-archives">Archives</a></li>
+                        <li class="nav-item"><a href="profil.html" class="nav-link nav-profil nav-link-badge">Profil
+                                Survivant</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Contenu Hero intérieur du Header -->
+            <div class="hero-content">
+                <div class="hero-left">
+                    <p class="hero-pretitle">L'Arche du passé est brisée.</p>
+                    <h1 id="hero-title" class="hero-title">Survivez.</h1>
+                    <p class="hero-subtitle">Réseau d'urgence activé - Méditerranée, 2068.</p>
+                    <a href="profil.html" class="btn-auth hero-actions">S'identifier</a>
+                </div>
+
+                <!-- Boîte Synchronisation Satellite (droite du Hero) -->
+                <div class="hero-right">
+                    <aside class="satellite-card" aria-label="Synchronisation satellite">
+                        <span class="satellite-label">Dernière synchronisation satellite :</span>
+                        <div class="satellite-telemetry">
+                            <time class="satellite-fixed-date" datetime="2068-11-16">16/11/2068</time>
+                            <time id="horloge-satellite" class="satellite-live-time">00:00:00.000</time>
+                        </div>
+                        <span id="sync-satellite" class="satellite-status">Liaison active (Signal nominal)</span>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ==================== CONTENU PRINCIPAL ==================== -->
+    <div class="site-container">
+        <main class="main-content">
+            <!-- Barre d'état secondaire -->
+            <section class="status-section" aria-label="État du système">
+                <div class="status-box">
+                    <span class="status-label">Espèce redécouverte :</span>
+                    <span id="compteur-especes" class="status-value">--/75</span>
+                </div>
+                <div class="status-box">
+                    <span class="status-label">Secteur opérationnel :</span>
+                    <span class="status-value">Bassin Méditerranéen</span>
+                </div>
+            </section>
+
+            <!-- Section Contexte -->
+            <section class="context-section" aria-labelledby="context-title">
+                <h2 id="context-title" class="context-title">Protocole de survie &amp; Contexte</h2>
+                <p class="context-text">
+                    En 2049, après la Troisième Guerre mondiale, des entreprises clonent une faune disparue sur une
+                    nouvelle île secrète en Méditerranée. <br>
+                    Le projet échoue en raison de la crise mondiale et est abandonné, mais il subsiste grâce à une
+                    source d'énergie volcanique. <br>
+                    En mai 2068, une rupture de confinement majeure libère ces bêtes préhistoriques et ces chimères sur
+                    une humanité désarmée. <br>
+                    « Paléosurvie » est le site web clandestin créé pour divulguer des dossiers classifiés et des
+                    tactiques de survie à la population.
+                </p>
+
+                <!-- Transmission d'urgence dynamique (Cas 1 TD3) -->
+                <aside class="directive-box" aria-label="Transmission prioritaire du réseau">
+                    <span class="directive-badge">Transmission prioritaire du réseau :</span>
+                    <p id="transmission-texte" class="directive-text">
+                        Directive 01 : Mise à jour du front alpin. Les meutes de loups géants et les Smilodons ont
+                        franchi les Alpes et le Rhin. Le sud et le centre de l'Europe sont classés «Zones Perdues».
+                        Barricadez-vous dans des structures en béton armé au-dessus du troisième étage.
+                    </p>
+                </aside>
+            </section>
+
+            <!-- Section Hubs (Inspirée des cards Experience avec morphing en losange) -->
+            <section class="hubs-section" aria-labelledby="hubs-title">
+                <header class="hubs-header">
+                    <h2 id="hubs-title" class="hubs-main-title">Terminaux d'exploration</h2>
+                    <p class="hubs-subtitle">Accédez aux modules prioritaires de survie</p>
+                </header>
+                <div class="hubs-container">
+                    <!-- Card #1 : Encyclopédie -->
+                    <article class="hub-card-effect">
+                        <figure class="hub-card">
+                            <img src="images/paleosurvie-encyclopedie.svg" alt="Encyclopédie des espèces"
+                                class="hub-card-img" width="512" height="512">
+                            <figcaption class="hub-card-overlay">
+                                <h3 class="hub-title">Encyclopédie</h3>
+                                <p class="hub-desc">Fiches taxonomiques et analyses biologiques des 75 espèces
+                                    recensées.</p>
+                                <a href="encyclopedie.html" class="hub-link">Consulter &rarr;</a>
+                            </figcaption>
+                        </figure>
+                    </article>
+
+                    <!-- Card #2 : Lien Conseils -->
+                    <article class="hub-card-effect">
+                        <figure class="hub-card">
+                            <img src="images/paleosurvie-lien-conseils.svg" alt="Conseils de survie"
+                                class="hub-card-img" width="512" height="512">
+                            <figcaption class="hub-card-overlay">
+                                <h3 class="hub-title">Lien Conseils</h3>
+                                <p class="hub-desc">Protocoles d'urgence, fabrication d'équipements et consignes de
+                                    sécurité.</p>
+                                <a href="survie.html" class="hub-link">Accéder &rarr;</a>
+                            </figcaption>
+                        </figure>
+                    </article>
+
+                    <!-- Card #3 : Archives -->
+                    <article class="hub-card-effect">
+                        <figure class="hub-card">
+                            <img src="images/paleosurvie-archives.svg" alt="Archives du réseau" class="hub-card-img" width="512" height="512">
+                            <figcaption class="hub-card-overlay">
+                                <h3 class="hub-title">Archives</h3>
+                                <p class="hub-desc">Rapports déclassifiés des laboratoires Z-Territoire et Complexe
+                                    Wara.</p>
+                                <a href="archives.html" class="hub-link">Explorer &rarr;</a>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pied de page -->
+        <footer class="main-footer">
+            <p class="footer-copy">&copy; 2068 - Réseau d'alerte indépendant</p>
+            <nav class="footer-nav" aria-label="Liens légaux">
+                <ul class="footer-links">
+                    <li><a href="mentions-legales.html" class="footer-link">Mentions légales</a></li>
+                    <li><a href="confidentialite.html" class="footer-link">Confidentialité</a></li>
+                    <li><a href="accessibilite.html" class="footer-link">Accessibilité</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- ==================== CONTRÔLE AUDIO D'AMBIANCE ==================== -->
+    <button type="button" id="btn-audio" class="btn-audio" aria-label="Activer ou désactiver la musique d'ambiance">
+        <span class="btn-audio-indicateur" aria-hidden="true"></span>
+        <span id="btn-audio-texte">Audio : OFF</span>
+    </button>
+    <audio id="audio-ambiance" loop preload="none">
+        <source src="audio/son%20ambiance.mp3" type="audio/mpeg">
+    </audio>
+</body>
+
+</html>
